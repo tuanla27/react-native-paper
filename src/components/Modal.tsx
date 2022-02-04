@@ -18,6 +18,7 @@ import Surface from './Surface';
 import { useTheme } from '../core/theming';
 import useAnimatedValue from '../utils/useAnimatedValue';
 import { addEventListener } from '../utils/addEventListener';
+import color from 'color';
 
 type Props = {
   /**
@@ -109,7 +110,7 @@ export default function Modal({
     visibleRef.current = visible;
   });
 
-  const { colors, animation } = useTheme();
+  const { colors, animation, isV3, md } = useTheme();
 
   const opacity = useAnimatedValue(visible ? 1 : 0);
 
@@ -219,7 +220,15 @@ export default function Modal({
         <Animated.View
           style={[
             styles.backdrop,
-            { backgroundColor: colors?.backdrop, opacity },
+            {
+              backgroundColor: isV3
+                ? color(md('md.sys.color.background') as string)
+                    .alpha(0.8)
+                    .rgb()
+                    .string()
+                : colors?.backdrop,
+              opacity,
+            },
           ]}
         />
       </TouchableWithoutFeedback>

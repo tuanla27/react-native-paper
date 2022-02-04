@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, StyleProp, TextStyle } from 'react-native';
 import Title from '../Typography/v2/Title';
+import Text from '../Typography/Text';
 import { withTheme } from '../../core/theming';
 import type { Theme } from '../../types';
 
@@ -50,17 +51,27 @@ type Props = React.ComponentPropsWithRef<typeof Title> & {
  * export default MyComponent;
  * ```
  */
-const DialogTitle = ({ children, theme, style, ...rest }: Props) => (
-  <Title
-    // @ts-expect-error We keep old a11y props for backwards compat with old RN versions
-    accessibilityTraits="header"
-    accessibilityRole="header"
-    style={[styles.text, { color: theme.colors?.text }, style]}
-    {...rest}
-  >
-    {children}
-  </Title>
-);
+const DialogTitle = ({ children, theme, style, ...rest }: Props) => {
+  const { isV3, md } = theme;
+
+  const TextComponent = isV3 ? Text : Title;
+  const textColor = isV3
+    ? (md('md.sys.color.on-surface') as string)
+    : theme.colors?.text;
+
+  return (
+    <TextComponent
+      variant="headline-small"
+      // @ts-expect-error We keep old a11y props for backwards compat with old RN versions
+      accessibilityTraits="header"
+      accessibilityRole="header"
+      style={[styles.text, isV3 && styles.v3Text, { color: textColor }, style]}
+      {...rest}
+    >
+      {children}
+    </TextComponent>
+  );
+};
 
 DialogTitle.displayName = 'Dialog.Title';
 
@@ -69,6 +80,10 @@ const styles = StyleSheet.create({
     marginTop: 22,
     marginBottom: 18,
     marginHorizontal: 24,
+  },
+  v3Text: {
+    marginTop: 16,
+    marginBottom: 16,
   },
 });
 
