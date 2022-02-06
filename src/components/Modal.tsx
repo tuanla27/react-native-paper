@@ -19,6 +19,7 @@ import { useTheme } from '../core/theming';
 import useAnimatedValue from '../utils/useAnimatedValue';
 import { addEventListener } from '../utils/addEventListener';
 import color from 'color';
+import { tokens } from '../styles/themes/v3/tokens';
 
 type Props = {
   /**
@@ -110,7 +111,7 @@ export default function Modal({
     visibleRef.current = visible;
   });
 
-  const { colors, animation, isV3, md } = useTheme();
+  const { colors, animation, isV3 } = useTheme();
 
   const opacity = useAnimatedValue(visible ? 1 : 0);
 
@@ -222,8 +223,8 @@ export default function Modal({
             styles.backdrop,
             {
               backgroundColor: isV3
-                ? color(md('md.sys.color.background') as string)
-                    .alpha(0.8)
+                ? color(tokens.md.ref.palette['neutral-variant20'])
+                    .alpha(0.4)
                     .rgb()
                     .string()
                 : colors?.backdrop,
