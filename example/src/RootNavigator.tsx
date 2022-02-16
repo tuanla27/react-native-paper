@@ -1,7 +1,11 @@
 import * as React from 'react';
+import { Platform } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import type { DrawerNavigationProp } from '@react-navigation/drawer';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from '@react-navigation/stack';
 import { getHeaderTitle } from '@react-navigation/elements';
 import ExampleList, { examples } from './ExampleList';
 
@@ -33,6 +37,9 @@ export default function Root() {
               </Appbar.Header>
             );
           },
+          ...Platform.select({
+            android: TransitionPresets.RevealFromBottomAndroid,
+          }),
         };
       }}
     >
