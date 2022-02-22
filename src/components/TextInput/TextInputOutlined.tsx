@@ -103,7 +103,7 @@ const TextInputOutlined = ({
     inputTextColor = colors.text;
     activeColor = error ? colors.error : activeOutlineColor || colors.primary;
     placeholderColor = colors.placeholder;
-    placeholderActive = error ? colors.error : (!placeholderActiveColor ? colors.primary : placeholderActiveColor);
+    placeholderActive = error ? colors.error : (!parentState.placeholderActiveColor ? colors.primary : parentState.placeholderActiveColor);
     outlineColor = customOutlineColor || colors.placeholder;
     errorColor = colors.error;
   }
@@ -187,7 +187,6 @@ const TextInputOutlined = ({
     baseLabelTranslateY,
     baseLabelTranslateX,
     placeholderActive,
-    isRequired,
     font,
     fontSize,
     fontWeight,
@@ -338,9 +337,9 @@ const TextInputOutlined = ({
             ],
           } as RenderProps)}
         </View>
-        {!!trailingIcon ? (
+        {!!parentState.trailingIcon ? (
           <View style={{ marginRight: 10, marginTop: 5 }}>
-            {trailingIcon()}
+            {parentState.trailingIcon()}
           </View>
         ) : null}
         <TextInputAdornment {...adornmentProps} />

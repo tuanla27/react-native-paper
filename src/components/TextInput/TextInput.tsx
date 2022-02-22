@@ -142,7 +142,7 @@ export type TextInputProps = React.ComponentPropsWithRef<
 
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<
-    TextInputProps & React.RefAttributes<TextInputHandles>
+  TextInputProps & React.RefAttributes<TextInputHandles>
   > {
   Icon: React.FunctionComponent<TextInputIconProps>;
   Affix: React.FunctionComponent<Partial<TextInputAffixProps>>;
@@ -207,6 +207,11 @@ const TextInput = React.forwardRef<TextInputHandles, TextInputProps>(
       error: errorProp = false,
       multiline = false,
       editable = true,
+      isRequired,
+      onIconPress,
+      accessibilityLabel,
+      trailingIcon,
+      placeholderActiveColor,
       render = (props: RenderProps) => <NativeTextInput {...props} />,
       ...rest
     }: TextInputProps,
@@ -406,6 +411,11 @@ const TextInput = React.forwardRef<TextInputHandles, TextInputProps>(
           {...rest}
           value={value}
           parentState={{
+            isRequired,
+            onIconPress,
+            accessibilityLabel,
+            trailingIcon,
+            placeholderActiveColor,
             labeled,
             error,
             focused,
@@ -440,6 +450,11 @@ const TextInput = React.forwardRef<TextInputHandles, TextInputProps>(
         {...rest}
         value={value}
         parentState={{
+          isRequired,
+          onIconPress,
+          accessibilityLabel,
+          trailingIcon,
+          placeholderActiveColor,
           labeled,
           error,
           focused,
