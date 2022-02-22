@@ -25,9 +25,7 @@ const InputLabel = (props: InputLabelProps) => {
     paddingOffset,
     placeholderColor,
     errorColor,
-    labelTranslationXOffset,
-    placeholderActive,
-    isRequired
+    labelTranslationXOffset
   } = props.labelProps;
 
   const labelTranslationX = {
