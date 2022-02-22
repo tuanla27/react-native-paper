@@ -76,6 +76,7 @@ export type LabelProps = {
   error?: boolean | null;
   onLayoutAnimatedText: (args: any) => void;
   roundness: number;
+  placeholderActive: string;
 };
 export type InputLabelProps = {
   parentState: State;

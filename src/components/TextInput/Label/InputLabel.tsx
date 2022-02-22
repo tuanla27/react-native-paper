@@ -25,7 +25,8 @@ const InputLabel = (props: InputLabelProps) => {
     paddingOffset,
     placeholderColor,
     errorColor,
-    labelTranslationXOffset
+    labelTranslationXOffset,
+    placeholderActive
   } = props.labelProps;
 
   const labelTranslationX = {
@@ -114,7 +115,7 @@ const InputLabel = (props: InputLabelProps) => {
         ]}
         numberOfLines={1}
       >
-        {label} {isRequired ? <Text style={{ color: 'red' }}>*</Text> : null}
+        {label} {parentState.isRequired ? <Text style={{ color: 'red' }}>*</Text> : null}
       </AnimatedText>
       <AnimatedText
         style={[
@@ -131,7 +132,7 @@ const InputLabel = (props: InputLabelProps) => {
         ]}
         numberOfLines={1}
       >
-        {label} {isRequired ? <Text style={{ color: 'red' }}>*</Text> : null}
+        {label} {parentState.isRequired ? <Text style={{ color: 'red' }}>*</Text> : null}
       </AnimatedText>
     </Animated.View>
   ) : null;

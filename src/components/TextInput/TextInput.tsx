@@ -207,11 +207,6 @@ const TextInput = React.forwardRef<TextInputHandles, TextInputProps>(
       error: errorProp = false,
       multiline = false,
       editable = true,
-      isRequired = false,
-      onIconPress = {},
-      accessibilityLabel = '',
-      trailingIcon = {},
-      placeholderActiveColor = '',
       render = (props: RenderProps) => <NativeTextInput {...props} />,
       ...rest
     }: TextInputProps,
