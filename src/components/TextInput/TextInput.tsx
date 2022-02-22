@@ -406,11 +406,6 @@ const TextInput = React.forwardRef<TextInputHandles, TextInputProps>(
           {...rest}
           value={value}
           parentState={{
-            isRequired,
-            onIconPress,
-            accessibilityLabel,
-            trailingIcon,
-            placeholderActiveColor,
             labeled,
             error,
             focused,
@@ -445,11 +440,6 @@ const TextInput = React.forwardRef<TextInputHandles, TextInputProps>(
         {...rest}
         value={value}
         parentState={{
-          isRequired,
-          onIconPress,
-          accessibilityLabel,
-          trailingIcon,
-          placeholderActiveColor,
           labeled,
           error,
           focused,

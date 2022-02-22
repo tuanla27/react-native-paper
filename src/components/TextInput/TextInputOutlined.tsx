@@ -48,6 +48,11 @@ const TextInputOutlined = ({
   disabled = false,
   editable = true,
   label,
+  isRequired,
+  onIconPress,
+  accessibilityLabel,
+  trailingIcon,
+  placeholderActiveColor,
   error = false,
   selectionColor,
   underlineColor: _underlineColor,
@@ -190,6 +195,7 @@ const TextInputOutlined = ({
     font,
     fontSize,
     fontWeight,
+    isRequired,
     labelScale,
     wiggleOffsetX: LABEL_WIGGLE_X_OFFSET,
     topPosition,
@@ -337,9 +343,9 @@ const TextInputOutlined = ({
             ],
           } as RenderProps)}
         </View>
-        {!!parentState.trailingIcon ? (
+        {!!trailingIcon ? (
           <View style={{ marginRight: 10, marginTop: 5 }}>
-            {parentState.trailingIcon()}
+            {trailingIcon()}
           </View>
         ) : null}
         <TextInputAdornment {...adornmentProps} />

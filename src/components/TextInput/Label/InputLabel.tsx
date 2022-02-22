@@ -21,6 +21,7 @@ const InputLabel = (props: InputLabelProps) => {
     placeholderOpacity,
     wiggleOffsetX,
     labelScale,
+    isRequired,
     topPosition,
     paddingOffset,
     placeholderColor,
@@ -115,7 +116,7 @@ const InputLabel = (props: InputLabelProps) => {
         ]}
         numberOfLines={1}
       >
-        {label} {parentState.isRequired ? <Text style={{ color: 'red' }}>*</Text> : null}
+        {label} {isRequired ? <Text style={{ color: 'red' }}>*</Text> : null}
       </AnimatedText>
       <AnimatedText
         style={[
@@ -132,7 +133,7 @@ const InputLabel = (props: InputLabelProps) => {
         ]}
         numberOfLines={1}
       >
-        {label} {parentState.isRequired ? <Text style={{ color: 'red' }}>*</Text> : null}
+        {label} {isRequired ? <Text style={{ color: 'red' }}>*</Text> : null}
       </AnimatedText>
     </Animated.View>
   ) : null;
