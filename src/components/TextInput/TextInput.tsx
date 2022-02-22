@@ -62,6 +62,11 @@ export type TextInputProps = React.ComponentPropsWithRef<
    * Inactive underline color of the input.
    */
   underlineColor?: string;
+  isRequired?: boolean;
+  onIconPress?: Function;
+  accessibilityLabel?: string;
+  trailingIcon?: Function;
+  placeholderActiveColor?: string;
   /**
    * Active underline color of the input.
    */
