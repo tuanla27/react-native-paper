@@ -12,7 +12,6 @@ const InputLabel = (props: InputLabelProps) => {
     error,
     onLayoutAnimatedText,
     hasActiveOutline,
-    activeColor,
     placeholderStyle,
     baseLabelTranslateX,
     baseLabelTranslateY,

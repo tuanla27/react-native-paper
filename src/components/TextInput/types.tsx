@@ -31,6 +31,11 @@ export type State = {
   labeled: Animated.Value;
   error: Animated.Value;
   focused: boolean;
+  isRequired: boolean,
+  onIconPress: any,
+  accessibilityLabel: string,
+  trailingIcon: any,
+  placeholderActiveColor: any,
   placeholder?: string;
   value?: string;
   labelLayout: { measured: boolean; width: number; height: number };
