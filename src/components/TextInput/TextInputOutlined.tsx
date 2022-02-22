@@ -191,6 +191,8 @@ const TextInputOutlined = ({
     placeholderStyle: styles.placeholder,
     baseLabelTranslateY,
     baseLabelTranslateX,
+    placeholderActive,
+    isRequired,
     font,
     fontSize,
     fontWeight,
@@ -301,8 +303,6 @@ const TextInputOutlined = ({
             parentState={parentState}
             labelProps={labelProps}
             labelBackground={LabelBackground}
-            placeholderActive={placeholderActive}
-            isRequired={isRequired}
           />
           {render?.({
             testID: 'text-input-outlined',
