@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, StyleSheet } from 'react-native';
+import { Animated, StyleSheet, Text } from 'react-native';
 import AnimatedText from '../../Typography/AnimatedText';
 
 import type { InputLabelProps } from '../types';
@@ -27,6 +27,8 @@ const InputLabel = (props: InputLabelProps) => {
     placeholderColor,
     errorColor,
     labelTranslationXOffset,
+    placeholderActive,
+    isRequired
   } = props.labelProps;
 
   const labelTranslationX = {
@@ -105,7 +107,8 @@ const InputLabel = (props: InputLabelProps) => {
           labelStyle,
           paddingOffset || {},
           {
-            color: activeColor,
+            // color: activeColor,
+            color: placeholderActive,
             opacity: parentState.labeled.interpolate({
               inputRange: [0, 1],
               outputRange: [hasActiveOutline ? 1 : 0, 0],
@@ -114,7 +117,7 @@ const InputLabel = (props: InputLabelProps) => {
         ]}
         numberOfLines={1}
       >
-        {label}
+        {label} {isRequired ? <Text style={{ color: 'red' }}>*</Text> : null}
       </AnimatedText>
       <AnimatedText
         style={[
@@ -131,7 +134,7 @@ const InputLabel = (props: InputLabelProps) => {
         ]}
         numberOfLines={1}
       >
-        {label}
+        {label} {isRequired ? <Text style={{ color: 'red' }}>*</Text> : null}
       </AnimatedText>
     </Animated.View>
   ) : null;

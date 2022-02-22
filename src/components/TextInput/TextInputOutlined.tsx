@@ -54,6 +54,11 @@ const TextInputOutlined = ({
   outlineColor: customOutlineColor,
   activeOutlineColor,
   dense,
+  isRequired,
+  onIconPress,
+  accessibilityLabel,
+  trailingIcon,
+  placeholderActiveColor,
   style,
   theme,
   render = (props: RenderProps) => <NativeTextInput {...props} />,
@@ -89,7 +94,7 @@ const TextInputOutlined = ({
   } = (StyleSheet.flatten(style) || {}) as TextStyle;
   const fontSize = fontSizeStyle || MAXIMIZED_LABEL_FONT_SIZE;
 
-  let inputTextColor, activeColor, outlineColor, placeholderColor, errorColor;
+  let inputTextColor, activeColor, outlineColor, placeholderColor, errorColor, placeholderActive;
 
   if (disabled) {
     const isTransparent = color(customOutlineColor).alpha() === 0;
@@ -103,6 +108,7 @@ const TextInputOutlined = ({
     inputTextColor = colors.text;
     activeColor = error ? colors.error : activeOutlineColor || colors.primary;
     placeholderColor = colors.placeholder;
+    placeholderActive = error ? colors.error : (!placeholderActiveColor ? colors.primary : placeholderActiveColor);
     outlineColor = customOutlineColor || colors.placeholder;
     errorColor = colors.error;
   }
@@ -295,6 +301,8 @@ const TextInputOutlined = ({
             parentState={parentState}
             labelProps={labelProps}
             labelBackground={LabelBackground}
+            placeholderActive={placeholderActive}
+            isRequired={isRequired}
           />
           {render?.({
             testID: 'text-input-outlined',
@@ -335,6 +343,11 @@ const TextInputOutlined = ({
             ],
           } as RenderProps)}
         </View>
+        {!!trailingIcon ? (
+          <View style={{ marginRight: 10, marginTop: 5 }}>
+            {trailingIcon()}
+          </View>
+        ) : null}
         <TextInputAdornment {...adornmentProps} />
       </View>
     </View>
