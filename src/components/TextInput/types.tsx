@@ -31,11 +31,6 @@ export type State = {
   labeled: Animated.Value;
   error: Animated.Value;
   focused: boolean;
-  isRequired: boolean,
-  onIconPress: any,
-  accessibilityLabel: string,
-  trailingIcon: any,
-  placeholderActiveColor: any,
   placeholder?: string;
   value?: string;
   labelLayout: { measured: boolean; width: number; height: number };
@@ -76,16 +71,17 @@ export type LabelProps = {
   error?: boolean | null;
   onLayoutAnimatedText: (args: any) => void;
   roundness: number;
-  placeholderActive: string;
-  isRequired: boolean;
 };
 export type InputLabelProps = {
   parentState: State;
   labelProps: LabelProps;
   labelBackground?: any;
+  placeholderActive?: string;
+  isRequired?: boolean;
 };
 export type LabelBackgroundProps = {
   labelProps: LabelProps;
   labelStyle: any;
   parentState: State;
+  isRequired: boolean;
 };

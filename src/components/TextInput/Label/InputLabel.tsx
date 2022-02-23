@@ -5,7 +5,7 @@ import AnimatedText from '../../Typography/AnimatedText';
 import type { InputLabelProps } from '../types';
 
 const InputLabel = (props: InputLabelProps) => {
-  const { parentState, labelBackground } = props;
+  const { parentState, labelBackground, placeholderActive, isRequired } = props;
 
   const {
     label,
@@ -21,13 +21,11 @@ const InputLabel = (props: InputLabelProps) => {
     placeholderOpacity,
     wiggleOffsetX,
     labelScale,
-    isRequired,
     topPosition,
     paddingOffset,
     placeholderColor,
     errorColor,
     labelTranslationXOffset,
-    placeholderActive
   } = props.labelProps;
 
   const labelTranslationX = {
@@ -71,6 +69,8 @@ const InputLabel = (props: InputLabelProps) => {
     ],
   };
 
+  console.log("Input Label", props, labelStyle)
+
   return label ? (
     // Position colored placeholder and gray placeholder on top of each other and crossfade them
     // This gives the effect of animating the color, but allows us to use native driver
@@ -95,6 +95,7 @@ const InputLabel = (props: InputLabelProps) => {
         parentState,
         labelStyle,
         labelProps: props.labelProps,
+        isRequired
       })}
       <AnimatedText
         onLayout={onLayoutAnimatedText}

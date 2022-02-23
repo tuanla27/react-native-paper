@@ -55,6 +55,11 @@ const TextInputFlat = ({
   selectionColor,
   underlineColor,
   activeUnderlineColor,
+  isRequired,
+  onIconPress,
+  accessibilityLabel,
+  trailingIcon,
+  placeholderActiveColor,
   dense,
   style,
   theme,
@@ -130,6 +135,7 @@ const TextInputFlat = ({
     activeColor,
     underlineColorCustom,
     placeholderColor,
+    placeholderActive,
     errorColor;
 
   if (disabled) {
@@ -143,6 +149,7 @@ const TextInputFlat = ({
     inputTextColor = colors.text;
     activeColor = error ? colors.error : activeUnderlineColor || colors.primary;
     placeholderColor = colors.placeholder;
+    placeholderActive = error ? colors.error : (!placeholderActiveColor ? colors.primary : placeholderActiveColor);
     errorColor = colors.error;
     underlineColorCustom = underlineColor || colors.disabled;
   }
@@ -251,6 +258,8 @@ const TextInputFlat = ({
     placeholderStyle: styles.placeholder,
     baseLabelTranslateY,
     baseLabelTranslateX,
+    placeholderActive,
+    isRequired,
     font,
     fontSize,
     fontWeight,

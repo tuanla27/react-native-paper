@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Animated, StyleSheet } from 'react-native';
+import { Animated, StyleSheet, Text } from 'react-native';
 
 import AnimatedText from '../../Typography/AnimatedText';
 
@@ -17,6 +17,7 @@ const LabelBackground = ({
     roundness,
   },
   labelStyle,
+  isRequired
 }: LabelBackgroundProps) => {
   const hasFocus = hasActiveOutline || parentState.value;
   const opacity = parentState.labeled.interpolate({
@@ -78,7 +79,7 @@ const LabelBackground = ({
           ]}
           numberOfLines={1}
         >
-          {label}
+              {label} {isRequired ? <Text>  </Text> : null}
         </AnimatedText>,
       ]
     : null;

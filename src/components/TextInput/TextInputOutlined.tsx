@@ -77,6 +77,11 @@ const TextInputOutlined = ({
   placeholderTextColor,
   ...rest
 }: ChildTextInputProps) => {
+  console.log("seconds input data", isRequired,
+    onIconPress,
+    accessibilityLabel,
+    trailingIcon,
+    placeholderActiveColor)
   const adornmentConfig = getAdornmentConfig({ left, right });
 
   const { colors, fonts } = theme;
@@ -108,7 +113,7 @@ const TextInputOutlined = ({
     inputTextColor = colors.text;
     activeColor = error ? colors.error : activeOutlineColor || colors.primary;
     placeholderColor = colors.placeholder;
-    placeholderActive = error ? colors.error : (!parentState.placeholderActiveColor ? colors.primary : parentState.placeholderActiveColor);
+    placeholderActive = error ? colors.error : (!placeholderActiveColor ? colors.primary : placeholderActiveColor);
     outlineColor = customOutlineColor || colors.placeholder;
     errorColor = colors.error;
   }
@@ -180,8 +185,8 @@ const TextInputOutlined = ({
   const placeholderOpacity = hasActiveOutline
     ? interpolatePlaceholder(parentState.labeled, hasActiveOutline)
     : parentState.labelLayout.measured
-    ? 1
-    : 0;
+      ? 1
+      : 0;
 
   const labelProps = {
     label,
@@ -191,11 +196,9 @@ const TextInputOutlined = ({
     placeholderStyle: styles.placeholder,
     baseLabelTranslateY,
     baseLabelTranslateX,
-    placeholderActive,
     font,
     fontSize,
     fontWeight,
-    isRequired,
     labelScale,
     wiggleOffsetX: LABEL_WIGGLE_X_OFFSET,
     topPosition,
@@ -275,7 +278,9 @@ const TextInputOutlined = ({
   }
 
   return (
-    <View style={viewStyle}>
+    <View
+      accessibilityLabel={accessibilityLabel}
+      style={[viewStyle, {display: 'flex', flex: 1}]}>
       {/*
           Render the outline separately from the container
           This is so that the label can overlap the outline
@@ -287,15 +292,19 @@ const TextInputOutlined = ({
         focused={parentState.focused}
         activeColor={activeColor}
         outlineColor={outlineColor}
-        backgroundColor={backgroundColor}
+        backgroundColor={error ? "#FFF4F4" : "transparent"}
       />
       <View>
         <View
           style={[
             styles.labelContainer,
             {
-              paddingTop: LABEL_PADDING_TOP,
+              paddingTop: LABEL_PADDING_TOP - 4,
               minHeight,
+              flex: 1,
+              flexDirection: 'row',
+              alignItems: 'center',
+              display: 'flex',
             },
           ]}
         >
@@ -303,6 +312,8 @@ const TextInputOutlined = ({
             parentState={parentState}
             labelProps={labelProps}
             labelBackground={LabelBackground}
+            placeholderActive={placeholderActive}
+            isRequired={isRequired}
           />
           {render?.({
             testID: 'text-input-outlined',
@@ -335,19 +346,19 @@ const TextInputOutlined = ({
                 textAlign: textAlign
                   ? textAlign
                   : I18nManager.isRTL
-                  ? 'right'
-                  : 'left',
+                    ? 'right'
+                    : 'left',
               },
               Platform.OS === 'web' && { outline: 'none' },
               adornmentStyleAdjustmentForNativeInput,
             ],
           } as RenderProps)}
-        </View>
-        {!!trailingIcon ? (
+          {!!trailingIcon ? (
           <View style={{ marginRight: 10, marginTop: 5 }}>
             {trailingIcon()}
           </View>
         ) : null}
+        </View>
         <TextInputAdornment {...adornmentProps} />
       </View>
     </View>
@@ -363,6 +374,7 @@ type OutlineProps = {
   outlineColor?: string;
   backgroundColor: ColorValue;
   theme: ReactNativePaper.Theme;
+  trailingIcon?: Function;
 };
 
 const Outline = ({
@@ -371,7 +383,7 @@ const Outline = ({
   activeColor,
   outlineColor,
   focused,
-  backgroundColor,
+  backgroundColor
 }: OutlineProps) => (
   <View
     testID="text-input-outline"
@@ -400,7 +412,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 6,
-    bottom: 0,
+    bottom: 0
   },
   labelContainer: {
     paddingBottom: 0,
@@ -410,6 +422,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: INPUT_PADDING_HORIZONTAL,
     margin: 0,
     zIndex: 1,
+    width: "90%"
   },
   inputOutlined: {
     paddingTop: 8,
