@@ -77,11 +77,6 @@ const TextInputOutlined = ({
   placeholderTextColor,
   ...rest
 }: ChildTextInputProps) => {
-  console.log("seconds input data", isRequired,
-    onIconPress,
-    accessibilityLabel,
-    trailingIcon,
-    placeholderActiveColor)
   const adornmentConfig = getAdornmentConfig({ left, right });
 
   const { colors, fonts } = theme;

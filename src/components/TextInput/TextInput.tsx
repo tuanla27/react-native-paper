@@ -412,7 +412,6 @@ const TextInput = React.forwardRef<TextInputHandles, TextInputProps>(
           onIconPress={onIconPress}
           accessibilityLabel={accessibilityLabel}
           trailingIcon={trailingIcon}
-          placeholderActiveColor={placeholderActiveColor}
           {...rest}
           value={value}
           parentState={{
