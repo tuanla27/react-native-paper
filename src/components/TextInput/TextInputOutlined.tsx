@@ -392,7 +392,7 @@ const Outline = ({
       styles.outline,
       // eslint-disable-next-line react-native/no-inline-styles
       focused && {
-        shadowColor: hasActiveOutline ? "rgba(29, 161, 242, 0.8)" : rgba(233, 93, 93, 0.8),
+        shadowColor: hasActiveOutline ? "rgba(29, 161, 242, 0.8)" : "rgba(233, 93, 93, 0.8)",
         shadowOffset: {
           width: 0,
           height: 2,
