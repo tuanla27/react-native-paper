@@ -69,8 +69,6 @@ const InputLabel = (props: InputLabelProps) => {
     ],
   };
 
-  console.log("Input Label", props, labelStyle)
-
   return label ? (
     // Position colored placeholder and gray placeholder on top of each other and crossfade them
     // This gives the effect of animating the color, but allows us to use native driver
