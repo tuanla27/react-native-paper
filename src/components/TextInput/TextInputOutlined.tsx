@@ -307,7 +307,7 @@ const TextInputOutlined = ({
             parentState={parentState}
             labelProps={labelProps}
             labelBackground={LabelBackground}
-            placeholderActive={placeholderActive}
+            placeholderActive={inputTextColor}
             isRequired={isRequired}
           />
           {render?.({
