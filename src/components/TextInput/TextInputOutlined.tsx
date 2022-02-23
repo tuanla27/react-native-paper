@@ -94,7 +94,7 @@ const TextInputOutlined = ({
   } = (StyleSheet.flatten(style) || {}) as TextStyle;
   const fontSize = fontSizeStyle || MAXIMIZED_LABEL_FONT_SIZE;
 
-  let inputTextColor, activeColor, outlineColor, placeholderColor, errorColor, placeholderActive;
+  let inputTextColor, activeColor, outlineColor, placeholderColor, errorColor;
 
   if (disabled) {
     const isTransparent = color(customOutlineColor).alpha() === 0;
@@ -108,7 +108,7 @@ const TextInputOutlined = ({
     inputTextColor = colors.text;
     activeColor = error ? colors.error : activeOutlineColor || colors.primary;
     placeholderColor = colors.placeholder;
-    placeholderActive = error ? colors.error : (!placeholderActiveColor ? colors.primary : placeholderActiveColor);
+    // placeholderActive = error ? colors.error : (!placeholderActiveColor ? colors.primary : placeholderActiveColor);
     outlineColor = customOutlineColor || colors.placeholder;
     errorColor = colors.error;
   }
