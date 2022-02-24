@@ -287,15 +287,15 @@ const TextInputOutlined = ({
         focused={parentState.focused}
         activeColor={activeColor}
         outlineColor={outlineColor}
-        backgroundColor={error ? "#FFF4F4" : "transparent"}
+        backgroundColor={error ? "rgba(255, 244, 244, 0.4)" : "transparent"}
       />
       <View>
         <View
           style={[
             styles.labelContainer,
             {
-              paddingTop: LABEL_PADDING_TOP - 4,
-              minHeight,
+              paddingTop: LABEL_PADDING_TOP - 6,
+              minHeight: Platform.OS === 'ios' ? minHeight : minHeight - 10,
               flex: 1,
               flexDirection: 'row',
               alignItems: 'center',
@@ -386,7 +386,7 @@ const Outline = ({
     style={[
       styles.outline,
       // eslint-disable-next-line react-native/no-inline-styles
-      focused && {
+      focused && Platform.OS === 'ios' && {
         shadowColor: hasActiveOutline ? "rgba(29, 161, 242, 0.8)" : "rgba(233, 93, 93, 0.8)",
         shadowOffset: {
           width: 0,

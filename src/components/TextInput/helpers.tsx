@@ -1,4 +1,4 @@
-import type { Animated } from 'react-native';
+import { Animated, Platform } from 'react-native';
 import type { AdornmentConfig } from './Adornment/types';
 import {
   LABEL_PADDING_HORIZONTAL,
@@ -37,7 +37,7 @@ export const calculateLabelTopPosition = (
 ): number => {
   const customHeight = height > 0 ? height : 0;
 
-  return Math.floor((customHeight - labelHeight) / 2 + optionalPadding);
+  return Math.floor((customHeight - labelHeight) / 2 + optionalPadding - (Platform.OS === 'android' ? 4 : 0));
 };
 
 export const calculateInputHeight = (
