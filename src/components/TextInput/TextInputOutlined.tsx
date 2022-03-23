@@ -109,7 +109,8 @@ const TextInputOutlined = ({
     activeColor = error ? colors.error : activeOutlineColor || colors.primary;
     placeholderColor = colors.placeholder;
     // placeholderActive = error ? colors.error : (!placeholderActiveColor ? colors.primary : placeholderActiveColor);
-    outlineColor = customOutlineColor || colors.placeholder;
+    // outlineColor = customOutlineColor || colors.placeholder;
+    outlineColor = "#E3E3E3";
     errorColor = colors.error;
   }
 
@@ -401,7 +402,7 @@ const Outline = ({
         backgroundColor,
         borderRadius: theme.roundness,
         borderWidth: focused ? 2 : 1,
-        borderColor: hasActiveOutline ? activeColor : "#E3E3E3",
+        borderColor: hasActiveOutline ? activeColor : outlineColor,
       },
     ]}
   />
