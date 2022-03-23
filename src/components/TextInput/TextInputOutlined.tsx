@@ -286,7 +286,7 @@ const TextInputOutlined = ({
         hasActiveOutline={hasActiveOutline}
         focused={parentState.focused}
         activeColor={activeColor}
-        outlineColor={"#E3E3E3"}
+        outlineColor={outlineColor}
         backgroundColor={error ? "rgba(255, 244, 244, 0.4)" : "transparent"}
       />
       <View>
@@ -401,7 +401,7 @@ const Outline = ({
         backgroundColor,
         borderRadius: theme.roundness,
         borderWidth: focused ? 2 : 1,
-        borderColor: hasActiveOutline ? activeColor : outlineColor,
+        borderColor: hasActiveOutline ? activeColor : "#E3E3E3",
       },
     ]}
   />
