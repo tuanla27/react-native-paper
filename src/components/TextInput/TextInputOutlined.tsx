@@ -429,7 +429,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: INPUT_PADDING_HORIZONTAL,
     margin: 0,
     zIndex: 1,
-    width: "90%"
+    width: "82%"
   },
   inputOutlined: {
     paddingTop: 8,
