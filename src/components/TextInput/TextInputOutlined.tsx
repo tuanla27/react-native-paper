@@ -350,7 +350,7 @@ const TextInputOutlined = ({
             ],
           } as RenderProps)}
           {!!trailingIcon ? (
-          <View style={{ marginRight: 10, marginTop: 5 }}>
+          <View style={{ marginRight: 20, marginTop: 5 }}>
             {trailingIcon()}
           </View>
         ) : null}
@@ -395,7 +395,7 @@ const Outline = ({
       //   },
       //   shadowOpacity: 0.25,
       //   shadowRadius: 3.84,
-        
+
       //   elevation: 5,
       // },
       {
