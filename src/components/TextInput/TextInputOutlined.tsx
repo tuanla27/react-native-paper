@@ -49,6 +49,7 @@ const TextInputOutlined = ({
   editable = true,
   label,
   isRequired,
+  isDarkMode,
   onIconPress,
   accessibilityLabel,
   trailingIcon,
@@ -288,7 +289,8 @@ const TextInputOutlined = ({
         focused={parentState.focused}
         activeColor={activeColor}
         outlineColor={outlineColor}
-        backgroundColor={error ? "rgba(255, 244, 244, 0.4)" : "transparent"}
+        // backgroundColor={error ? "rgba(255, 244, 244, 0.4)" : "transparent"}
+        backgroundColor={"transparent"}
       />
       <View>
         <View

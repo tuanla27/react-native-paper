@@ -66,6 +66,7 @@ export type TextInputProps = React.ComponentPropsWithRef<
   onIconPress?: Function;
   accessibilityLabel?: string;
   trailingIcon?: Function;
+  isDarkMode?: boolean;
   placeholderActiveColor?: string;
   /**
    * Active underline color of the input.
@@ -208,6 +209,7 @@ const TextInput = React.forwardRef<TextInputHandles, TextInputProps>(
       multiline = false,
       editable = true,
       isRequired,
+      isDarkMode,
       onIconPress,
       accessibilityLabel,
       trailingIcon,
@@ -409,6 +411,7 @@ const TextInput = React.forwardRef<TextInputHandles, TextInputProps>(
           editable={editable}
           render={render}
           isRequired={isRequired}
+          isDarkMode={isDarkMode}
           onIconPress={onIconPress}
           accessibilityLabel={accessibilityLabel}
           trailingIcon={trailingIcon}
